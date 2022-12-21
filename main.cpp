@@ -35,14 +35,6 @@ class Frisian : public Cow
 };
 
 int main() {
-	Sheep sheep;
-	Cow cow;
-	Frisian frisian_cow;
-
-	Animal* sheep_pointer = &sheep;
-	Animal* cow_pointer = &cow;
-	Animal* frisian_cow_pointer = &frisian_cow;
-
 	std::vector<Animal*> animals;
 
 	int amount;
@@ -50,22 +42,23 @@ int main() {
 	cout << "How many sheep? " << endl;
 	cin >> amount;
 	for (int i = 0; i < amount; i++) {
-		animals.push_back(sheep_pointer);
+		animals.push_back(new Sheep());
 	}
 
 	cout << "How many cows? " << endl;
 	cin >> amount;
 	for (int i = 0; i < amount; i++) {
-		animals.push_back(cow_pointer);
+		animals.push_back(new Cow());
 	}
 
 	cout << "How many frisian cows? " << endl;
 	cin >> amount;
 	for (int i = 0; i < amount; i++) {
-		animals.push_back(frisian_cow_pointer);
+		animals.push_back(new Frisian());
 	}
 
 	for (int a = 0; a < animals.size(); a++) {
+		cout << animals[a] << endl;
 		animals[a]->speak();
 	}
 }
